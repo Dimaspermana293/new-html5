@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        form{
+            width: 600px;
+            padding: 20px;
+            background-color: aqua;
+        }
+        label{
+            display: block;
+        }
+        button{
+            margin-top: 5px;
+        }
+        input:invalid{
+            border: none;
+            outline: 2px solid red;
+            border-radius: 2px;
+        }
+        input:valid{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- email -->
+    <!-- tel:telepon -->
+    <!-- url -->
+    <!-- numberr -->
+    <!-- range -->
+    <!-- datetime picker -->
+    <!-- color picker -->
+
+
+    <!-- HTML 5 INPUT ATTRIBUTES -->
+    <!-- autocomplete: menghapus auto input  -->
+    <!-- autofocus: cursor otomatis tersimpan di input  -->
+    <!-- required: inputan wajib diisi  -->
+    <!-- max/min length: max/min nilai  -->
+    <!-- step: yang hanya bisa diisi  -->
+    <!-- pattern: menentukan pola dengan reggex(regular expression) -->
+    
+    <form action="" method="post" autocomplete="off">
+        <h1>Penggunaan tipe-tipe Input HTML 5</h1>
+        <div>
+            <label for="nama">Masukkan nama</label>
+            <input type="text" name="nama" id="nama" autofocus required minlength="10" oninvalid="this.setCustomValidity('ini harus diisi')" oninput="this.setCustomValidity('')">
+
+        </div>
+        <div>
+            <label for="email">Masukkan email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="nohp">Masukkan no.hp</label>
+            <input type="tel" name="nohp" id="nohp">
+        </div>
+        <div>
+            <label for="url">Masukkan url</label>
+            <input type="url" name="url" id="url">
+        </div>
+        <div>
+            <label for="number">Masukkan number</label>
+            <input type="number" name="number" id="number">
+        </div>
+        <div>
+            <label for="slider">Masukkan slider</label>
+            <input type="range" name="number" id="number">
+        </div>
+        <div>
+            <label for="date">Masukkan tanggal</label>
+            <input type="time" name="date" id="date">
+        </div>
+        <div>
+            <label for="color">Masukkan color</label>
+            <input type="color" name="color" id="color">
+            <span class="hexa"></span>
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script>
+        const color = document.querySelector('#color');
+        const hexa = document.querySelector('.hexa');
+        
+        hexa.innerHTML = color.value;
+        color.addEventListener('input', function(){
+            hexa.innerHTML = color.value;
+            hexa.style.color = color.value;
+        })
+    </script>
+</body>
+</html>
